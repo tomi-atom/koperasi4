@@ -16,7 +16,7 @@
             <a class="nav-link" href="#">Blog</a>
         </li> --}}
     </ul>
-    <span class="copyright ml-auto my-auto mr-2">Copyright © 2018
-        <a href="#" rel="nofollow">FeryPranata</a>
+    <span class="copyright ml-auto my-auto mr-2">Copyright © 2021
+        <a href="#" rel="nofollow">Bumdes</a>
     </span>
 </footer>

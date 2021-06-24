@@ -3,8 +3,7 @@
         <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
             <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
                 <div class="d-table m-auto">
-                    <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="{{ asset('shards/images/shards-dashboards-logo.svg') }}"
-                        alt="Shards Dashboard">
+
                     <span class="d-none d-md-inline ml-1">Bumdes</span>
                 </div>
             </a>
@@ -37,7 +36,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ $linknasabah or '' }} " href="{{ route('nasabah.index') }}">
                     <i class="material-icons">person</i>
-                    <span>Nasabah</span>
+                    <span>Anggota</span>
                 </a>
             </li>
             @endcan
@@ -73,14 +72,15 @@
                 </a>
             </li>
             @endcan
-            @can('roles')
+
+         <!--   @can('roles')
             <li class="nav-item">
                 <a class="nav-link {{ $linkrole or '' }}" href="{{ route('roles.index') }}">
                     <i class="material-icons">perm_data_setting</i>
                     <span>Role & Permission</span>
                 </a>
             </li>
-            @endcan
+            @endcan -->
 
         </ul>
     </div>
