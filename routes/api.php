@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('simpanan', 'Api\SimpananController');
+Route::resource('kas', 'Api\KasController');
 Route::resource('nasabah', 'Api\NasabahController');
 Route::resource('penarikan', 'Api\PenarikanController');
 Route::resource('pinjaman', 'Api\PinjamanController');

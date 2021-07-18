@@ -4,7 +4,7 @@
             <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
                 <div class="d-table m-auto">
 
-                    <span class="d-none d-md-inline ml-1">Bumdes</span>
+                    <span class="d-none d-md-inline ml-1">Bumdes Berkah Bersama</span>
                 </div>
             </a>
             <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
@@ -40,6 +40,7 @@
                 </a>
             </li>
             @endcan
+
             @can('simpanan')
             <li class="nav-item">
                 <a class="nav-link {{ $linksimpanan or '' }}" href="{{ route('simpanan.index') }}">

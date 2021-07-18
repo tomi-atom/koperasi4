@@ -11,7 +11,7 @@
         <table border="1" width="500px">
             <tr>
                 <td>
-                    <h3>Bumdes <br> </h3>
+                    <h3>Bumdes Berkah Bersama <br> </h3>
                 </td>
                 <td>
                     <table border="1" width="100%">

@@ -21,13 +21,17 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('simpanan/report', 'SimpananController@report');
     Route::get('simpanan/{id}/struk', 'SimpananController@struk');
+    Route::get('kas/report', 'KasController@report');
+    Route::get('kas/{id}/struk', 'KasController@struk');
     Route::get('pinjaman/report', 'PinjamanController@report');
     Route::get('pinjaman/{id}/struk', 'PinjamanController@struk');
+    Route::post('pinjaman/{id}/strukpembayaran', 'PinjamanController@strukpembayaran')->name('pinjaman.strukpembayaran');
     Route::get('penarikan/report', 'PenarikanController@report');
     Route::get('penarikan/{id}/struk', 'PenarikanController@struk');
 
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('simpanan', 'SimpananController');
+    Route::resource('kas', 'KasController');
     Route::resource('nasabah', 'NasabahController');
     Route::resource('penarikan', 'PenarikanController');
     Route::resource('pinjaman', 'PinjamanController');

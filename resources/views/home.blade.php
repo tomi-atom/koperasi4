@@ -81,7 +81,7 @@
 
         <div class="row">
 
-        
+
         <div class="col">
                 <div class="card card-small mb-4">
                     <div class="card-header border-bottom">
@@ -120,7 +120,7 @@
                     </div>
 
 
-                  
+
                 </div>
             </div>
 
@@ -179,11 +179,29 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg col-md-4 col-sm-6 mb-4">
+            <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                        <div class="stats-small__data text-center">
+                            <span class="stats-small__label text-uppercase">Saldo</span>
+                            <h6 class="stats-small__value count my-3">{{ number_format(App\Simpanan::sum('debit') - App\Simpanan::sum('kredit'))}}</h6>
+                        </div>
+                        <div class="stats-small__data">
+                            {{-- <span class="stats-small__percentage stats-small__percentage--decrease">3.8%</span> --}}
+                        </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-3"></canvas>
+                </div>
             </div>
-    
+        </div>
+    </div>
+
+
+
             <div class="row">
-    
-            
+
+
             <div class="col">
                     <div class="card card-small mb-4">
                         <div class="card-header border-bottom">
@@ -220,18 +238,18 @@
                                 <vue-pagination :data="simpanan" v-on:pagination-change-page="getSimpanan" :limit="1"></vue-pagination>
                             </div>
                         </div>
-    
-    
-                      
+
+
+
                     </div>
                 </div>
-    
-    
+
+
             </div>
         </div>
     @endhasanyrole
     <!-- End Small Stats Blocks -->
-   
+
 @endsection
 
 @push('scripts')
