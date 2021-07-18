@@ -9,7 +9,7 @@
 <body onload="window.print()">
     <center>
         <h2>Laporan Penarikan</h2>
-        Bumdes
+        Bumdes Berkah Bersama
         <p>Periode {{ $periode }} </p>
     </center>
     <br>

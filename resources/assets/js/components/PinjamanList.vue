@@ -113,7 +113,8 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="Jumlah">Jumlah Pinjaman</label>
+                                                <label for="Jumlah">Jumlah Pinjaman<br> <small>Pinjaman Tidak Boleh Melewti Saldo</small></label>
+
                                                 <input type="number" id="Jumlah" v-model="form.jumlah" class="form-control">
                                             </div>
 
@@ -237,6 +238,7 @@
                     .catch(function (error) {
                         console.log(error);
                         this.errors = error.response.data.errors
+                        alert('Pinjaman Melebihi Saldo')
                     }.bind(this));
             },
 

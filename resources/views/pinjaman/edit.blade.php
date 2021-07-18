@@ -39,6 +39,16 @@
                                             @method('delete')
                                             @csrf
                                         </form>
+
+                                        <a href="#" onclick="getElementById('struk{{ $item->id }}').submit()">
+                                            <i class="material-icons" title="struk">credit_card</i>
+                                        </a>
+                                        <form action="{{ route('pinjaman.strukpembayaran', ['id'=>$item->id]) }}" method="post" id="struk{{ $item->id }}">
+                                            @method('post')
+                                            @csrf
+                                        </form>
+
+
                                     </td>
                                 </tr>
                                 @endforeach

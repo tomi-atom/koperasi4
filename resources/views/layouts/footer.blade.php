@@ -17,6 +17,6 @@
         </li> --}}
     </ul>
     <span class="copyright ml-auto my-auto mr-2">Copyright © 2021
-        <a href="#" rel="nofollow">Bumdes</a>
+        <a href="#" rel="nofollow">Bumdes Berkah Bersama</a>
     </span>
 </footer>

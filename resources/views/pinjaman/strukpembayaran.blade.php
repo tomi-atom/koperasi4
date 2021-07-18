@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Simpanan Report</title>
+    <title>Pinjaman Report</title>
 </head>
 <body onload="window.print()">
     <center>
@@ -16,7 +16,7 @@
                 <td>
                     <table border="1" width="100%">
                         <tr>
-                            <td colspan="2">Transaksi Simpanan</td>
+                            <td colspan="2">Transaksi Pinjaman</td>
                         </tr>
                         <tr>
                             <td>Nama Nasabah :</td>
@@ -31,9 +31,15 @@
                 <td align="right">{{ \Carbon\Carbon::parse($struk->tanggal)->format('D, d F Y') }}</td>
             </tr>
             <tr>
-                <td>Jumlah Simpanan</td>
-                <td align="center">Rp {{ number_format($struk->debit) }}</td>
+                <td>Jumlah Pinjaman</td>
+                <td align="center">Rp {{ number_format($struk->jumlah) }}</td>
             </tr>
+            <tr>
+                <td>Cicilan/bulan</td>
+                <td align="center">Rp{{ number_format($struk->jumlah /
+                                        $struk->durasi, 2) }}</td>
+            </tr>
+
             <tr align="center">
                 <td>
                     Nasabah
