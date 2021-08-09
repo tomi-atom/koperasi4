@@ -27,14 +27,18 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">{{ __('Login') }}</div>
-
+                        <br>
+                        <div class="text-center mb-3">
+                            <img src="{{asset('/images/inhu.png')}}" alt="Image" style="width:100px;height:80px; " class="center"/>
+                            <i class="icon-people icon-2x text-warning-400 border-warning-400 border-3 rounded-round p-3 mb-3 mt-1"></i>
+                        <h5 class="mb-0">SimKeuBumdes</h5>
+                    </div>
                         <div class="card-body">
                             <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                                 @csrf
 
                                 <div class="form-group row">
-                                    <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                    <label for="email" class="col-sm-3 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
@@ -48,7 +52,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                    <label for="password" class="col-md-3 col-form-label text-md-right">{{ __('Password') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>

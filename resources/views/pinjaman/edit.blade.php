@@ -88,9 +88,8 @@
                                 <span class="d-flex">
                                     <i class="material-icons mr-1">score</i>
                                     <strong class="mr-1">Cicilan/bulan:</strong>
-                                    <strong class="text-warning">Rp{{ number_format($pinjaman->jumlah /
-                                        $pinjaman->durasi, 2) }}</strong>
-                                    <input type="hidden" name="bayar_bulanan" value="{{ $pinjaman->jumlah / $pinjaman->durasi }}">
+                                    <strong class="text-warning">Rp{{ number_format(($pinjaman->jumlah + $pinjaman->jumlah * 1.25/100)  / $pinjaman->durasi, 2) }}</strong>
+                                    <input type="hidden" name="bayar_bulanan" value="{{ ($pinjaman->jumlah + $pinjaman->jumlah * 1.25/100)  / $pinjaman->durasi }}">
                                 </span>
                             </li>
                             <li class="list-group-item d-flex px-3">
