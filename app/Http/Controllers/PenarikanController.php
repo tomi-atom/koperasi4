@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Simpanan;
+use Maatwebsite\Excel\Facades\Excel;
+use Rap2hpoutre\FastExcel\FastExcel;
 use Auth;
 
 class PenarikanController extends Controller
@@ -23,14 +25,14 @@ class PenarikanController extends Controller
                 'message'   =>  'Maaf, Tidak bisa melakukan penarikan. Saldo anda kurang ' . ($request->kredit-$saldo)
                             ), 404);
         }
-        
+
         $simpanan = new Simpanan;
         $simpanan->fill($request->all());
         $simpanan->saldo = $saldo - $request->kredit;
         $simpanan->pengelola = Auth::user()->name;
         $simpanan->save();
 
-        return $simpanan; 
+        return $simpanan;
     }
 
     public function update(Request $request, $id)
@@ -47,10 +49,12 @@ class PenarikanController extends Controller
 
     public function report(Request $request)
     {
-        $data['report'] = Simpanan::whereBetween('tanggal', [$request->tgl_awal, $request->tgl_akhir])->where('user_id', 'like', '%'.$request->user_id)->get();
-        $data['periode'] = $request->tgl_awal . ' - ' . $request->tgl_akhir;
-        
-        return view('penarikan.report', $data);
+        $data = Simpanan::select('name','tanggal','jenis','kode_transaksi','debit','kredit','saldo')
+            ->leftJoin('users','simpanans.user_id','users.id')
+        ->whereBetween('tanggal', [$request->tgl_awal, $request->tgl_akhir])->where('user_id', 'like', '%'.$request->user_id)->get();
+
+        return (new FastExcel($data))->download('laporanpenarikan.xlsx');
+
     }
 
     public function struk($id)

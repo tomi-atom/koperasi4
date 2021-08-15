@@ -170,7 +170,7 @@
                     durasi: [
                         { name: '6 Bulan', value: 6 },
                         { name: '12 Bulan', value: 12 },
-                        { name: '24 Bulan', value: 24 },
+
                     ]
                 },
 

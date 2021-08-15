@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Simpanan;
 use Illuminate\Http\Request;
 use Auth;
+use Rap2hpoutre\FastExcel\FastExcel;
 
 class SimpananController extends Controller
 {
@@ -44,7 +45,7 @@ class SimpananController extends Controller
         $simpanan->pengelola = Auth::user()->name;
         $simpanan->save();
 
-        return $simpanan; 
+        return $simpanan;
     }
 
     /**
@@ -101,10 +102,12 @@ class SimpananController extends Controller
 
     public function report(Request $request)
     {
-        $data['report'] = Simpanan::whereBetween('tanggal', [$request->tgl_awal, $request->tgl_akhir])->where('user_id', 'like', '%'.$request->user_id)->get();
-        $data['periode'] = $request->tgl_awal . ' - ' . $request->tgl_akhir;
-        
-        return view('simpanan.report', $data);
+        $data = Simpanan::select('name','tanggal','jenis','kode_transaksi','debit','kredit','saldo')
+            ->leftJoin('users','simpanans.user_id','users.id')
+            ->whereBetween('tanggal', [$request->tgl_awal, $request->tgl_akhir])->where('user_id', 'like', '%'.$request->user_id)->get();
+        //$data['periode'] = $request->tgl_awal . ' - ' . $request->tgl_akhir;
+
+        return (new FastExcel($data))->download('file.xlsx');
     }
 
     public function struk($id)

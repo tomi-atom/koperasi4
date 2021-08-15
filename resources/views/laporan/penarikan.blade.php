@@ -27,7 +27,7 @@
                                             <option value="{{ $item->id }}">{{ $item->no_anggota .'-'.  $item->name }}</option>
                                         @endforeach
                                     </select>
-                                <button class="btn btn-sm btn-primary ml-1"><i class="material-icons">print</i></button>
+                                <button class="btn btn-sm btn-success ml-2"><i class="material-icons">note_add</i></button>
                             </div>
                         </form>
                     </h6>
@@ -59,9 +59,9 @@
                             @endforeach
                         </tbody>
                     </table>
-                 
+
                 </div>
-            
+
             </div>
         </div>
     </div>

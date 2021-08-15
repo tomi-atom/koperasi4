@@ -7,6 +7,8 @@ use App\Pinjaman;
 use App\Simpanan;
 use App\PinjamanDetail;
 use Auth;
+use Rap2hpoutre\FastExcel\FastExcel;
+
 class PinjamanController extends Controller
 {
     public function index(Request $request)
@@ -60,14 +62,16 @@ class PinjamanController extends Controller
     {
         $pinjaman = Pinjaman::with(['user'])->orderBy('id', 'desc')->where('user_id', 'like', '%'.$request->user_id)->get();
         foreach ($pinjaman as $value) {
+
+
             $value->sudah_bayar = $value->detail()->sum('bayar_bulanan');
             $value->sisa_bayar = $value->jumlah - $value->detail()->sum('bayar_bulanan');
         }
 
-        $data['report'] = $pinjaman;
-        $data['periode'] = $request->tgl_awal . ' - ' . $request->tgl_akhir;
+        $data = $pinjaman;
+        //$data['periode'] = $request->tgl_awal . ' - ' . $request->tgl_akhir;
 
-        return view('pinjaman.report', $data);
+        return (new FastExcel($data))->download('laporan pinjaman.xlsx');
     }
 
     public function struk($id)
