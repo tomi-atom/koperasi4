@@ -34637,6 +34637,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'nasabah-list',
@@ -34898,11 +34912,25 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(nasabah.name))]),
                       _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(nasabah.no_indetitas))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(nasabah.kk))]),
+                      _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(nasabah.email))]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(nasabah.alamat))]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(nasabah.kelamin))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(nasabah.tanggal_lahir))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(nasabah.shdk))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(nasabah.agama))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(nasabah.pendidikan))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(nasabah.ibu))]),
                       _vm._v(" "),
                       _c("td", [
                         _vm._v(_vm._s(nasabah.status ? "Aktif" : "Tidak Aktif"))
@@ -35646,6 +35674,14 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "border-0", attrs: { scope: "col" } }, [
+          _vm._v("KTP")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "border-0", attrs: { scope: "col" } }, [
+          _vm._v("KK")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "border-0", attrs: { scope: "col" } }, [
           _vm._v("Email")
         ]),
         _vm._v(" "),
@@ -35655,6 +35691,26 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "border-0", attrs: { scope: "col" } }, [
           _vm._v("Kelamin")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "border-0", attrs: { scope: "col" } }, [
+          _vm._v("Tanggal Lahir")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "border-0", attrs: { scope: "col" } }, [
+          _vm._v("SHDK")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "border-0", attrs: { scope: "col" } }, [
+          _vm._v("Agama")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "border-0", attrs: { scope: "col" } }, [
+          _vm._v("Pendidikan")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "border-0", attrs: { scope: "col" } }, [
+          _vm._v("Ibu")
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "border-0", attrs: { scope: "col" } }, [
@@ -36767,7 +36823,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             options: {
                 selectUser: [],
-                durasi: [{ name: '6 Bulan', value: 6 }, { name: '12 Bulan', value: 12 }, { name: '24 Bulan', value: 24 }]
+                durasi: [{ name: '6 Bulan', value: 6 }, { name: '12 Bulan', value: 12 }]
             },
 
             form: {

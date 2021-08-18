@@ -13,7 +13,7 @@ class NasabahController extends Controller
     {
         return User::role('nasabah')->search($request->q)->orderBy('id', 'desc')->paginate(5);
     }
-    
+
     public function create()
     {
         return User::role('nasabah')->get();
@@ -31,6 +31,6 @@ class NasabahController extends Controller
 
     public function show($id)
     {
-        return User::find($id); 
+        return User::find($id);
     }
 }

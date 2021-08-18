@@ -37,9 +37,16 @@
                                     <tr>
                                         <th scope="col" class="border-0">No Anggota</th>
                                         <th scope="col" class="border-0">Nama</th>
+                                        <th scope="col" class="border-0">KTP</th>
+                                        <th scope="col" class="border-0">KK</th>
                                         <th scope="col" class="border-0">Email</th>
                                         <th scope="col" class="border-0">Alamat</th>
                                         <th scope="col" class="border-0">Kelamin</th>
+                                        <th scope="col" class="border-0">Tanggal Lahir</th>
+                                        <th scope="col" class="border-0">SHDK</th>
+                                        <th scope="col" class="border-0">Agama</th>
+                                        <th scope="col" class="border-0">Pendidikan</th>
+                                        <th scope="col" class="border-0">Ibu</th>
                                         <th scope="col" class="border-0">Status</th>
                                         <th scope="col" class="border-0">Aksi</th>
                                     </tr>
@@ -49,9 +56,16 @@
                                         <td><img :src="'images/'+nasabah.foto" class="user-avatar rounded-circle mr-3"
                                                 width="40px" height="40px">{{ nasabah.no_anggota }}</td>
                                         <td>{{ nasabah.name }}</td>
+                                        <td>{{ nasabah.no_indetitas }}</td>
+                                        <td>{{ nasabah.kk }}</td>
                                         <td>{{ nasabah.email }}</td>
                                         <td>{{ nasabah.alamat }}</td>
                                         <td>{{ nasabah.kelamin }}</td>
+                                        <td>{{ nasabah.tanggal_lahir }}</td>
+                                        <td>{{ nasabah.shdk }}</td>
+                                        <td>{{ nasabah.agama }}</td>
+                                        <td>{{ nasabah.pendidikan }}</td>
+                                        <td>{{ nasabah.ibu }}</td>
                                         <td>{{ nasabah.status ? 'Aktif' : 'Tidak Aktif' }}</td>
                                         <td>
                                             <a href="#" class="" v-on:click="editNasabah(nasabah.id)">

@@ -20,9 +20,16 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('kelamin');
             $table->string('no_anggota');
+            $table->string('tempat_lahir');
+            $table->string('tanggal_lahir');
+            $table->string('shdk');
             $table->string('agama');
+            $table->string('pendidikan');
+            $table->string('status_perkawinan');
             $table->string('identitas');
             $table->string('no_identitas');
+            $table->string('kk');
+            $table->string('ibu');
             $table->string('alamat');
             $table->string('foto');
             $table->boolean('status')->default(1);
