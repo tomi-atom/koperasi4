@@ -679,7 +679,7 @@
                 :
             </td>
             <td colspan="3">
-                57 TAHUN
+                {{$umur}}
             </td>
             <td>
             </td>
@@ -726,7 +726,7 @@
                 :
             </td>
             <td colspan="6">
-                Pegawai Negri sipil (PNS)
+                {{$user->pekerjaan}}
             </td>
             <td>
             </td>
@@ -816,10 +816,9 @@
             </td>
             <td>
             </td>
-            <td>
-            </td>
+
             <td colspan="8">
-                Kec. Seberida, INHU - RIAU.
+                {{$user->alamat}}
             </td>
             <td>
             </td>
@@ -1629,18 +1628,18 @@
             <td>
             </td>
             <td colspan="2">
-                SKGR
+
             </td>
             <td colspan="6">
             </td>
             <td colspan="5">
-                   {{ $struk->user->name }}
+
             </td>
             <td colspan="4">
-                Bandar padang
+
             </td>
             <td colspan="5" width="135">
-                31,000,000
+
             </td>
             <td>
             </td>
@@ -1797,13 +1796,13 @@
                 {{ number_format( $struk->jumlah / $struk->durasi )}}
             </td>
             <td colspan="4" width="108">
-              -
+                {{ $struk->jumlah * 1.25/100 }}
             </td>
             <td colspan="5" width="138">
-                20,000
+
             </td>
             <td colspan="5" width="135">
-                {{ number_format( $struk->jumlah / $struk->durasi + 20000 )}}
+                {{ number_format( $struk->jumlah / $struk->durasi + ($struk->jumlah * 1.25/10))}}
             </td>
             <td>
             </td>

@@ -17,7 +17,7 @@ class LaporanController extends Controller
     {
         $data['simpanan'] = Simpanan::orderBy('id', 'desc')->get();
         $data['nasabah'] = User::role('nasabah')->get();
-        
+
         return view('laporan.simpanan', $data);
     }
 
@@ -33,13 +33,14 @@ class LaporanController extends Controller
     {
         $pinjaman = Pinjaman::with(['user'])->search($request->q)->orderBy('id', 'desc')->paginate(5);
         foreach ($pinjaman as $value) {
-            $value->sudah_bayar = $value->detail()->sum('bayar_bulanan'); 
-            $value->sisa_bayar = $value->jumlah - $value->detail()->sum('bayar_bulanan'); 
+            $value->sudah_bayar = $value->detail()->sum('pokok');
+            $value->bunga = $value->detail()->sum('bunga');
+            $value->sisa_bayar = $value->jumlah - $value->detail()->sum('pokok');
         }
 
         $data['pinjaman'] = $pinjaman;
         $data['nasabah'] = User::role('nasabah')->get();
-        
+
         return view('laporan.pinjaman', $data);
     }
 }

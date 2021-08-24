@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Pinjaman;
 use App\Simpanan;
 use App\PinjamanDetail;
 use Auth;
+use Carbon\Carbon;
 use Rap2hpoutre\FastExcel\FastExcel;
 
 class PinjamanController extends Controller
@@ -76,15 +78,23 @@ class PinjamanController extends Controller
 
     public function struk($id)
     {
+        $pinjaman = Pinjaman::find($id);
         $data['struk'] = Pinjaman::find($id);
+        $data['user'] = User::find($pinjaman->user_id);
+        $user = User::find($pinjaman->user_id);
 
+        $now = Carbon::now(); // Tanggal sekarang
+        $b_day = Carbon::parse($user->tanggal_lahir); // Tanggal Lahir
+        $age = $b_day->diffInYears($now);  // Menghitung umur
+        $data['umur'] = $age;
         return view('pinjaman.struk', $data);
     }
-    public function strukpembayaran($id)
+    public function strukpembayaran($id,$ke)
     {
         $idpinjaman = PinjamanDetail::find($id);
         $data['id'] = Pinjaman::find($idpinjaman->pinjaman_id);
         $data['struk'] = Pinjaman::find($idpinjaman->pinjaman_id);
+        $data['ke'] = $ke;
 
         return view('pinjaman.strukpembayaran', $data);
     }

@@ -22,6 +22,10 @@
                             <td>Nama Nasabah :</td>
                             <td>{{ $struk->user->name }}</td>
                         </tr>
+                        <tr>
+                            <td>No Anggota :</td>
+                            <td>{{ $struk->user->no_anggota }}</td>
+                        </tr>
                     </table>
                 </td>
 
@@ -31,14 +35,24 @@
                 <td align="right">{{ \Carbon\Carbon::parse($struk->tanggal)->format('D, d F Y') }}</td>
             </tr>
             <tr>
+                <td>Angsuran Ke</td>
+                <td align="center">{{ $ke }}</td>
+            </tr>
+            <tr>
                 <td>Jumlah Pinjaman</td>
-                <td align="center">Rp {{ number_format($struk->jumlah) }}</td>
+                <td align="center">Rp {{ number_format($struk->jumlah), 2 }}</td>
             </tr>
             <tr>
                 <td>Cicilan/bulan</td>
                 <td align="center">Rp{{ number_format($struk->jumlah /
-                                        $struk->durasi, 2) }}</td>
+                                        $struk->durasi + ($struk->jumlah * 1.25/100 ), 2) }}</td>
             </tr>
+            <tr>
+                <td>Sisa Angsuran</td>
+                <td align="center">Rp{{ number_format($struk->jumlah - ($struk->jumlah /
+                                        $struk->durasi * $ke), 2) }}</td>
+            </tr>
+
 
             <tr align="center">
                 <td>

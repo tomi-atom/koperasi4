@@ -37,7 +37,9 @@
                             <tr>
                                 <th scope="col" class="border-0">Kode Transaksi</th>
                                 <th scope="col" class="border-0">Tanggal</th>
+                                <th scope="col" class="border-0">No Anggota</th>
                                 <th scope="col" class="border-0">Nasabah</th>
+                                <th scope="col" class="border-0">KTP</th>
                                 <th scope="col" class="border-0">Debit</th>
                                 <th scope="col" class="border-0">Kredit</th>
                                 <th scope="col" class="border-0">Saldo</th>
@@ -49,7 +51,9 @@
                             <tr>
                                 <td>{{ $row->kode_transaksi }}</td>
                                 <td>{{ $row->tanggal }}</td>
+                                <td>{{ $row->user->no_anggota }}</td>
                                 <td>{{ $row->user->name }}</td>
+                                <td>{{ $row->user->ktp }}</td>
                                 <td>{{ $row->kredit }}</td>
                                 <td>{{ $row->debit }}</td>
                                 <td>{{ $row->saldo }}</td>

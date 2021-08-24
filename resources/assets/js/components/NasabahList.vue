@@ -61,7 +61,7 @@
                                         <td>{{ nasabah.email }}</td>
                                         <td>{{ nasabah.alamat }}</td>
                                         <td>{{ nasabah.kelamin }}</td>
-                                        <td>{{ nasabah.tanggal_lahir }}</td>
+                                        <td>{{ nasabah.tempat_lahir }}<br>{{ nasabah.tanggal_lahir }}</td>
                                         <td>{{ nasabah.shdk }}</td>
                                         <td>{{ nasabah.agama }}</td>
                                         <td>{{ nasabah.pendidikan }}</td>
@@ -110,19 +110,27 @@
                                                             }}</div>
                                                     </div>
                                                     <div class="form-group">
+                                                        <label for="KTP">KTP</label>
+                                                        <input type="number" id="KTP" class="form-control"
+                                                               v-model="form.ktp" :class="errors.ktp ? 'is-invalid': ''">
+                                                        <div v-if="errors.ktp" class="invalid-feedback">{{
+                                                                errors.ktp[0] }}</div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="KK">KK</label>
+                                                        <input type="number" id="KK" class="form-control"
+                                                               v-model="form.kk" :class="errors.kk ? 'is-invalid': ''">
+                                                        <div v-if="errors.kk" class="invalid-feedback">{{
+                                                                errors.kk[0] }}</div>
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label for="Email">Email</label>
                                                         <input type="email" v-model="form.email" id="Email" class="form-control"
                                                             :class="errors.email ? 'is-invalid': ''">
                                                         <div v-if="errors.email" class="invalid-feedback">{{
                                                             errors.email[0] }}</div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="Password">Password</label>
-                                                        <input type="password" id="Password" v-model="form.password"
-                                                            class="form-control" :class="errors.password ? 'is-invalid': ''">
-                                                        <div v-if="errors.password" class="invalid-feedback">{{
-                                                            errors.password[0] }}</div>
-                                                    </div>
+
                                                     <div class="form-group">
                                                         <label for="Jenis Kelamin">Jenis Kelamin</label>
                                                         <br>
@@ -144,29 +152,7 @@
                                                         <div v-if="errors.agama" class="invalid-feedback">{{
                                                             errors.agama[0] }}</div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <div class="form-group">
-                                                                <label for="Identitas">Identitas</label>
-                                                                <select v-model="form.identitas" id="Identitas" class="form-control"
-                                                                    :class="errors.identitas ? 'is-invalid': ''">
-                                                                    <option v-for="identitas in options.identitas" :key="identitas.id">{{
-                                                                        identitas.name }}</option>
-                                                                </select>
-                                                                <div v-if="errors.identitas" class="invalid-feedback">{{
-                                                                    errors.identitas[0] }}</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-8">
-                                                            <div class="form-group">
-                                                                <label for="No Identitas">No Identitas</label>
-                                                                <input type="number" id="No Identitas" class="form-control"
-                                                                    v-model="form.no_identitas" :class="errors.no_identitas ? 'is-invalid': ''">
-                                                                <div v-if="errors.no_identitas" class="invalid-feedback">{{
-                                                                    errors.no_identitas[0] }}</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+
                                                     <div class="form-group">
                                                         <label for="Alamat">Alamat</label>
                                                         <textarea id="Alamat" cols="10" v-model="form.alamat" class="form-control"
@@ -190,6 +176,53 @@
                                                         <div v-if="errors.foto" class="invalid-feedback">{{
                                                             errors.foto[0]
                                                             }}</div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="Pendidikan">Pendidikan</label>
+                                                        <select id="Pendidikan" v-model="form.pendidikan" class="form-control"
+                                                                :class="errors.pendidikan ? 'is-invalid': ''">
+                                                            <option v-for="pendidikan in options.pendidikan" :key="pendidikan.id">{{
+                                                                    pendidikan.name }}</option>
+                                                        </select>
+                                                        <div v-if="errors.pendidikan" class="invalid-feedback">{{
+                                                                errors.pendidikan[0] }}</div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="Pekerjaan">Pekerjaan</label>
+                                                        <select id="Pekerjaan" v-model="form.pekerjaan" class="form-control"
+                                                                :class="errors.pekerjaan ? 'is-invalid': ''">
+                                                            <option v-for="pekerjaan in options.pekerjaan" :key="pekerjaan.id">{{
+                                                                    pekerjaan.name }}</option>
+                                                        </select>
+                                                        <div v-if="errors.pekerjaan" class="invalid-feedback">{{
+                                                                errors.pekerjaan[0] }}</div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="Status Nikah">Status Nikah</label>
+                                                        <select id="Status Nikah" v-model="form.status_perkawinan" class="form-control"
+                                                                :class="errors.status_perkawinan ? 'is-invalid': ''">
+                                                            <option v-for="status_perkawinan in options.status_perkawinan" :key="status_perkawinan.id">{{
+                                                                    status_perkawinan.name }}</option>
+                                                        </select>
+                                                        <div v-if="errors.status_perkawinan" class="invalid-feedback">{{
+                                                                errors.status_perkawinan[0] }}</div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="Shdk">Shdk</label>
+                                                        <select id="Shdk" v-model="form.shdk" class="form-control"
+                                                                :class="errors.shdk ? 'is-invalid': ''">
+                                                            <option v-for="shdk in options.shdk" :key="shdk.id">{{
+                                                                    shdk.name }}</option>
+                                                        </select>
+                                                        <div v-if="errors.shdk" class="invalid-feedback">{{
+                                                                errors.shdk[0] }}</div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="Nama Ibu">Nama Ibu</label>
+                                                        <input type="text" id="Nama Ibu" class="form-control"
+                                                               v-model="form.ibu" :class="errors.ibu ? 'is-invalid': ''">
+                                                        <div v-if="errors.ibu" class="invalid-feedback">{{
+                                                                errors.ibu[0] }}</div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="status">Status</label>
@@ -257,13 +290,105 @@
                             value: 'Katolik'
                         },
                     ],
-                    identitas: [{
-                            name: 'KTP',
-                            value: 'KTP'
+                    shdk: [{
+                        name: 'Kepala Keluarga',
+                        value: 'Kepala Keluarga'
+                    },
+                        {
+                            name: 'Istri',
+                            value: 'Istri'
                         },
                         {
-                            name: 'SIM',
-                            value: 'SIM'
+                            name: 'Anak',
+                            value: 'Anak'
+                        },
+                        {
+                            name: 'Famili lain',
+                            value: 'Famili Lain'
+                        },
+
+                    ],
+                    pekerjaan: [{
+                        name: 'Tidak/Belum Bekerja',
+                        value: 'Tidak/Belum Bekerja'
+                    },
+                        {
+                            name: 'Petani/Perkebunan',
+                            value: 'Petani/Perkebunan'
+                        },
+                        {
+                            name: 'Wiraswasta',
+                            value: 'Wiraswasta'
+                        },
+                        {
+                            name: 'Pelajar/Mahasiswa',
+                            value: 'Pelajar/Mahasiswa'
+                        },
+                        {
+                            name: 'Mengurus Rumah Tangga',
+                            value: 'Mengurus Rumah Tangga'
+                        },
+                        {
+                            name: 'PNS',
+                            value: 'PNS'
+                        },
+                        {
+                            name: 'Buruh Tani/Perkebunan',
+                            value: 'Buruh Tani/Perkebunan'
+                        },
+                        {
+                            name: 'Sopir',
+                            value: 'Sopir'
+                        },
+
+                    ],
+                    pendidikan: [{
+                        name: 'Tidak/Belum Sekolah',
+                        value: 'Tidak/Belum Sekolah'
+                    },
+                        {
+                            name: 'Belum Tamat SD/Sederajat',
+                            value: 'Belum Tamat SD/Sederajat'
+                        },
+                        {
+                            name: 'Tamat SD/Sederajat',
+                            value: 'Tamat SD/Sederajat'
+                        },
+                        {
+                            name: 'Tamat SLTP/Sederajat',
+                            value: 'Tamat SLTP/Sederajat'
+                        },
+                        {
+                            name: 'Tamat SLTA/Sederajat',
+                            value: 'Tamat SLTA/Sederajat'
+                        },
+                        {
+                            name: 'Diploma III',
+                            value: 'Diploma III'
+                        },
+                        {
+                            name: 'Diploma IV',
+                            value: 'Diploma IV'
+                        },
+                        {
+                            name: 'Sarjana',
+                            value: 'Sarjana'
+                        },
+
+                    ],
+
+                    status_perkawinan: [
+                        {
+                            name: 'Belum Kawin',
+                            value: 'Belum Kawin'
+                        },
+                        {
+                            name: 'Kawin',
+                            value: 'Kawin'
+                        },
+                        {
+                            name: 'Janda/Duda',
+                            value: 'Janda/Duda'
                         },
                     ],
                     status: [
@@ -284,13 +409,18 @@
                     email: '',
                     status: 1,
                     kelamin: '',
-                    password: '',
+                    password: '123456',
                     no_anggota: 'no_anggota',
                     agama: '',
-                    identitas: '',
-                    no_identitas: '',
+                    ktp: '',
+                    kk: '',
                     alamat: '',
                     foto: '',
+                    pendidikan: '',
+                    pekerjaan: '',
+                    shdk: '',
+                    ibu: '',
+
                 }
             }
         },

@@ -43,7 +43,7 @@
                                         <a href="#" onclick="getElementById('struk{{ $item->id }}').submit()">
                                             <i class="material-icons" title="struk">credit_card</i>
                                         </a>
-                                        <form action="{{ route('pinjaman.strukpembayaran', ['id'=>$item->id]) }}" method="post" id="struk{{ $item->id }}">
+                                        <form action="{{ route('pinjaman.strukpembayaran', ['id'=>$item->id,'ke'=>$key+1]) }}" method="post" id="struk{{ $item->id }}">
                                             @method('post')
                                             @csrf
                                         </form>
@@ -81,6 +81,7 @@
                                     <strong class="mr-1">Jumlah Pinjaman:</strong>
                                     <strong class="text-success">Rp{{ number_format($pinjaman->jumlah,2) }}</strong>
                                 </span>
+
                                 <span class="d-flex mb-2">
                                     <i class="material-icons mr-1">calendar_today</i>
                                     <strong class="mr-1">Durasi:</strong> {{ $pinjaman->durasi }}
@@ -88,8 +89,10 @@
                                 <span class="d-flex">
                                     <i class="material-icons mr-1">score</i>
                                     <strong class="mr-1">Cicilan/bulan:</strong>
-                                    <strong class="text-warning">Rp{{ number_format(($pinjaman->jumlah + $pinjaman->jumlah * 1.25/100)  / $pinjaman->durasi, 2) }}</strong>
-                                    <input type="hidden" name="bayar_bulanan" value="{{ ($pinjaman->jumlah + $pinjaman->jumlah * 1.25/100)  / $pinjaman->durasi }}">
+                                    <strong class="text-warning">Rp{{ number_format($pinjaman->jumlah /$pinjaman->durasi   + $pinjaman->jumlah * 1.25/100, 2) }}</strong>
+                                    <input type="hidden" name="bayar_bulanan" value="{{ $pinjaman->jumlah /$pinjaman->durasi   + $pinjaman->jumlah * 1.25/100 }}">
+                                    <input type="hidden" name="bunga" value="{{ $pinjaman->jumlah * 1.25/100 }}">
+                                    <input type="hidden" name="pokok" value="{{ $pinjaman->jumlah /$pinjaman->durasi   }}">
                                 </span>
                             </li>
                             <li class="list-group-item d-flex px-3">

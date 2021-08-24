@@ -26,13 +26,10 @@ class UserRequest extends FormRequest
         return [
             'name'  => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'identitas' => 'required',
-            'no_identitas' => 'required',
             'kelamin' => 'required',
             'agama' => 'required',
             'alamat' => 'required',
             'foto' => 'required',
-            'password' => 'required|string|min:6',
             'status' => 'required',
         ];
     }

@@ -26,7 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('kas/{id}/struk', 'KasController@struk');
     Route::get('pinjaman/report', 'PinjamanController@report');
     Route::get('pinjaman/{id}/struk', 'PinjamanController@struk');
-    Route::post('pinjaman/{id}/strukpembayaran', 'PinjamanController@strukpembayaran')->name('pinjaman.strukpembayaran');
+    Route::post('pinjaman/{id}/{ke}/strukpembayaran', 'PinjamanController@strukpembayaran')->name('pinjaman.strukpembayaran');
     Route::get('penarikan/report', 'PenarikanController@report');
     Route::get('penarikan/{id}/struk', 'PenarikanController@struk');
 

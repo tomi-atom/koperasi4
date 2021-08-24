@@ -153,7 +153,7 @@
                         <div class="d-flex flex-column m-auto">
                             <div class="stats-small__data text-center">
                                 <span class="stats-small__label text-uppercase">Anggota Yang Menyimpan</span>
-                                <h6 class="stats-small__value count my-3">2</h6>
+                                <h6 class="stats-small__value count my-3">{{ App\User::where('id', '!=', '1')->count() }}</h6>
                             </div>
                             <div class="stats-small__data">
                                 {{-- <span class="stats-small__percentage stats-small__percentage--increase">12.4%</span> --}}
@@ -235,8 +235,8 @@
             <div class="card-body p-0 d-flex">
                 <div class="d-flex flex-column m-auto">
                     <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase">Pinjaman</span>
-                        <h6 class="stats-small__value count my-3">{{ App\Pinjaman::count() }}</h6>
+                        <span class="stats-small__label text-uppercase">Keuntungan</span>
+                        <h6 class="stats-small__value count my-3">{{ App\PinjamanDetail::sum('bunga') }}</h6>
                     </div>
                     <div class="stats-small__data">
                         {{-- <span class="stats-small__percentage stats-small__percentage--decrease">3.8%</span> --}}

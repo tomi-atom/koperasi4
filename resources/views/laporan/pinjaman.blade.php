@@ -36,9 +36,12 @@
                             <thead class="bg-light">
                                 <tr>
                                     <th scope="col" class="border-1">Kode Transaksi</th>
-                                    <th scope="col" class="border-1">Nama Nasabah</th>
+                                    <th scope="col" class="border-0">No Anggota</th>
+                                    <th scope="col" class="border-0">Nasabah</th>
+                                    <th scope="col" class="border-0">KTP</th>
                                     <th scope="col" class="border-1">Uang Yang Dipinjam</th>
-                                    <th scope="col" class="border-1">Sudah Dibayar</th>
+                                    <th scope="col" class="border-1">Sudah Dibayar (Pokok)</th>
+                                    <th scope="col" class="border-1">Bunga</th>
                                     <th scope="col" class="border-1">Sisa Pembayaran</th>
                                     <th scope="col" class="border-1">Durasi /Bulan</th>
                                     <th scope="col" class="border-1">Tanggal</th>
@@ -49,11 +52,14 @@
                                 @foreach ($pinjaman as $row)
                                 <tr>
                                     <td>{{ $row->kode_transaksi }}</td>
+                                    <td>{{ $row->user->no_anggota }}</td>
                                     <td>{{ $row->user->name }}</td>
+                                    <td>{{ $row->user->ktp }}</td>
                                     <td>{{ number_format($row->jumlah) }}</td>
                                     <td>{{ number_format($row->sudah_bayar) }}</td>
+                                    <td>{{ number_format($row->bunga) }}</td>
                                     <td>{{ number_format($row->sisa_bayar) }}</td>
-                                    <td>{{ $row->durasi }}x  Rp{{ number_format($row->jumlah / $row->durasi) }}/bln</td>
+                                    <td>{{ $row->durasi }}x  Rp{{ number_format($row->jumlah / $row->durasi  + $row->jumlah * 1.25/100) }}/bln</td>
                                     <td>{{ $row->tanggal }}</td>
                                     <td>{{ $row->pengelola }}</td>
                                 </tr>

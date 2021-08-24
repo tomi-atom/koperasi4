@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class PinjamanDetail extends Model
 {
     public $table = 'pinjaman_details';
-    
+
     protected $fillable = [
-        'pinjaman_id', 'bayar_bulanan', 'tanggal' , 
+        'pinjaman_id', 'bayar_bulanan', 'pokok' , 'bunga' , 'tanggal' ,
     ];
-     
+
     public function user()
     {
         return $this->belongsTo(\App\User::class);

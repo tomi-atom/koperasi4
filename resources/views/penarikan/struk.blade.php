@@ -22,6 +22,10 @@
                             <td>Nama Nasabah :</td>
                             <td>{{ $struk->user->name }}</td>
                         </tr>
+                        <tr>
+                            <td>No Anggota :</td>
+                            <td>{{ $struk->user->no_anggota }}</td>
+                        </tr>
                     </table>
                 </td>
 
