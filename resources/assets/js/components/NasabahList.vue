@@ -56,7 +56,7 @@
                                         <td><img :src="'images/'+nasabah.foto" class="user-avatar rounded-circle mr-3"
                                                 width="40px" height="40px">{{ nasabah.no_anggota }}</td>
                                         <td>{{ nasabah.name }}</td>
-                                        <td>{{ nasabah.no_indetitas }}</td>
+                                        <td>{{ nasabah.ktp }}</td>
                                         <td>{{ nasabah.kk }}</td>
                                         <td>{{ nasabah.email }}</td>
                                         <td>{{ nasabah.alamat }}</td>
@@ -65,6 +65,7 @@
                                         <td>{{ nasabah.shdk }}</td>
                                         <td>{{ nasabah.agama }}</td>
                                         <td>{{ nasabah.pendidikan }}</td>
+                                        <td>{{ nasabah.pekerjaan }}</td>
                                         <td>{{ nasabah.ibu }}</td>
                                         <td>{{ nasabah.status ? 'Aktif' : 'Tidak Aktif' }}</td>
                                         <td>

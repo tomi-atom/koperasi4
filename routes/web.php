@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
 
+
     Route::get('simpanan/report', 'SimpananController@report');
     Route::get('simpanan/{id}/struk', 'SimpananController@struk');
     Route::get('kas/report', 'KasController@report');
