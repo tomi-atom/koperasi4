@@ -89,10 +89,15 @@
                                 <span class="d-flex">
                                     <i class="material-icons mr-1">score</i>
                                     <strong class="mr-1">Cicilan/bulan:</strong>
-                                    <strong class="text-warning">Rp{{ number_format($pinjaman->jumlah /$pinjaman->durasi   + $pinjaman->jumlah * 1.25/100, 2) }}</strong>
-                                    <input type="hidden" name="bayar_bulanan" value="{{ $pinjaman->jumlah /$pinjaman->durasi   + $pinjaman->jumlah * 1.25/100 }}">
-                                    <input type="hidden" name="bunga" value="{{ $pinjaman->jumlah * 1.25/100 }}">
+                                    <strong class="text-warning">Rp{{ number_format($pinjaman->jumlah /$pinjaman->durasi   + $pinjaman->jumlah * $pinjaman->bunga/100, 2) }}</strong>
+                                    <input type="hidden" name="bayar_bulanan" value="{{ $pinjaman->jumlah /$pinjaman->durasi   + $pinjaman->jumlah * $pinjaman->bunga/100 }}">
+                                    <input type="hidden" name="bunga" value="{{ $pinjaman->jumlah * $pinjaman->bunga/100 }}">
                                     <input type="hidden" name="pokok" value="{{ $pinjaman->jumlah /$pinjaman->durasi   }}">
+                                </span>
+                                <span class="d-flex mb-2">
+                                    <i class="material-icons mr-1">local_atm</i>
+                                    <strong class="mr-1">Bunga:</strong>
+                                    <strong class="text-success">{{$pinjaman->bunga }}%</strong>
                                 </span>
                             </li>
                             <li class="list-group-item d-flex px-3">

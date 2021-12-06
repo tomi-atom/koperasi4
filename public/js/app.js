@@ -34685,6 +34685,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'nasabah-list',
@@ -35515,6 +35530,97 @@ var render = function() {
                                         [_vm._v(_vm._s(_vm.errors.alamat[0]))]
                                       )
                                     : _vm._e()
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group" }, [
+                                  _c("label", { attrs: { for: "KK" } }, [
+                                    _vm._v("Tempat Lahir")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.kk,
+                                        expression: "form.kk"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    class: _vm.errors.kk ? "is-invalid" : "",
+                                    attrs: { type: "text", id: "Tempat Lahir" },
+                                    domProps: { value: _vm.form.kk },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "kk",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.tempat_lahir
+                                    ? _c(
+                                        "div",
+                                        { staticClass: "invalid-feedback" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.tempat_lahir[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group" }, [
+                                  _c("label", { attrs: { for: "KK" } }, [
+                                    _vm._v("Tanggal Lahir")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.tanggal_lahir,
+                                        expression: "form.tanggal_lahir"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    class: _vm.errors.tanggal_lahir
+                                      ? "is-invalid"
+                                      : "",
+                                    attrs: {
+                                      type: "date",
+                                      id: "Tanggal Lahir"
+                                    },
+                                    domProps: { value: _vm.form.tanggal_lahir },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "tanggal_lahir",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.tanggal_lahir
+                                    ? _c(
+                                        "div",
+                                        { staticClass: "invalid-feedback" },
+                                        [_vm._v(_vm._s(_vm.errors.kk[0]))]
+                                      )
+                                    : _vm._e()
                                 ])
                               ]),
                               _vm._v(" "),
@@ -36051,6 +36157,10 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "border-0", attrs: { scope: "col" } }, [
           _vm._v("Pendidikan")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "border-0", attrs: { scope: "col" } }, [
+          _vm._v("Pekerjaan")
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "border-0", attrs: { scope: "col" } }, [
@@ -37153,6 +37263,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'pinjaman-list',
@@ -37176,6 +37292,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 kode_transaksi: 'PJM',
                 jumlah: 0,
                 durasi: '',
+                bungan: '',
                 tanggal: ''
             }
         };
@@ -37383,6 +37500,8 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(pinjaman.durasi))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(pinjaman.bunga))]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(pinjaman.tanggal))]),
                       _vm._v(" "),
@@ -37628,6 +37747,36 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "form-group" }, [
+                              _vm._m(6),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.bunga,
+                                    expression: "form.bunga"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "number", id: "Bunga" },
+                                domProps: { value: _vm.form.bunga },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "bunga",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "form-group" }, [
                               _c("label", { attrs: { for: "Durasi" } }, [
                                 _vm._v("Durasi")
                               ]),
@@ -37720,7 +37869,7 @@ var render = function() {
                             ])
                           ]),
                           _vm._v(" "),
-                          _vm._m(6)
+                          _vm._m(7)
                         ])
                       ]
                     )
@@ -37825,6 +37974,10 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "border-1", attrs: { scope: "col" } }, [
+          _vm._v("Bunga")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "border-1", attrs: { scope: "col" } }, [
           _vm._v("Tanggal")
         ]),
         _vm._v(" "),
@@ -37864,6 +38017,17 @@ var staticRenderFns = [
       _c("br"),
       _vm._v(" "),
       _c("small", [_vm._v("Pinjaman Tidak Boleh Melewti Saldo")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "Jumlah" } }, [
+      _vm._v("Bunga ( % )"),
+      _c("br"),
+      _vm._v(" "),
+      _c("small", [_vm._v("Isikan dalam bentuk angka")])
     ])
   },
   function() {

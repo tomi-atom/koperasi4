@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Pinjaman extends Model
 {
     public $table = 'pinjamans';
-    
+
     protected $fillable = [
-        'user_id', 'kode_transaksi', 'jumlah', 'tanggal' ,  'durasi'
+        'user_id', 'kode_transaksi', 'jumlah', 'tanggal' , 'bunga' ,  'durasi'
     ];
 
     public function detail()

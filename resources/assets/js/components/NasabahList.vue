@@ -46,6 +46,7 @@
                                         <th scope="col" class="border-0">SHDK</th>
                                         <th scope="col" class="border-0">Agama</th>
                                         <th scope="col" class="border-0">Pendidikan</th>
+                                        <th scope="col" class="border-0">Pekerjaan</th>
                                         <th scope="col" class="border-0">Ibu</th>
                                         <th scope="col" class="border-0">Status</th>
                                         <th scope="col" class="border-0">Aksi</th>
@@ -160,6 +161,20 @@
                                                         <div v-if="errors.alamat" class="invalid-feedback">{{
                                                             errors.alamat[0]
                                                             }}</div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="KK">Tempat Lahir</label>
+                                                        <input type="text" id="Tempat Lahir" class="form-control"
+                                                               v-model="form.kk" :class="errors.kk ? 'is-invalid': ''">
+                                                        <div v-if="errors.tempat_lahir" class="invalid-feedback">{{
+                                                                errors.tempat_lahir[0] }}</div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="KK">Tanggal Lahir</label>
+                                                        <input type="date" id="Tanggal Lahir" class="form-control"
+                                                               v-model="form.tanggal_lahir" :class="errors.tanggal_lahir ? 'is-invalid': ''">
+                                                        <div v-if="errors.tanggal_lahir" class="invalid-feedback">{{
+                                                                errors.kk[0] }}</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">

@@ -49,6 +49,7 @@
                                         <th scope="col" class="border-1">Sudah Dibayar</th>
                                         <th scope="col" class="border-1">Sisa Pembayaran</th>
                                         <th scope="col" class="border-1">Durasi /Bulan</th>
+                                        <th scope="col" class="border-1">Bunga</th>
                                         <th scope="col" class="border-1">Tanggal</th>
                                         <th scope="col" class="border-1">Pengelola</th>
                                         <th scope="col" class="border-1">Aksi</th>
@@ -63,6 +64,7 @@
                                         <td>{{ formatPrice(pinjaman.sudah_bayar) }}</td>
                                         <td>{{ formatPrice(pinjaman.sisa_bayar) }}</td>
                                         <td>{{ pinjaman.durasi }}</td>
+                                        <td>{{ pinjaman.bunga }}</td>
                                         <td>{{ pinjaman.tanggal }}</td>
                                         <td>{{ pinjaman.pengelola }}</td>
                                         <td>
@@ -117,7 +119,11 @@
 
                                                 <input type="number" id="Jumlah" v-model="form.jumlah" class="form-control">
                                             </div>
+                                            <div class="form-group">
+                                                <label for="Jumlah">Bunga ( % )<br> <small>Isikan dalam bentuk angka</small></label>
 
+                                                <input type="number" id="Bunga" v-model="form.bunga" class="form-control">
+                                            </div>
                                             <div class="form-group">
                                                 <label for="Durasi">Durasi</label>
                                                 <select id="Durasi" class="form-control" v-model="form.durasi">
@@ -180,6 +186,7 @@
                     kode_transaksi: 'PJM',
                     jumlah: 0,
                     durasi: '',
+                    bungan: '',
                     tanggal: ''
                 }
             }
