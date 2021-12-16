@@ -74,6 +74,13 @@
             </li>
             @endcan
 
+                <li class="nav-item">
+                    <a class="nav-link {{ $linkneraca or '' }}" href="{{ route('neraca.index') }}">
+                        <i class="material-icons">book</i>
+                        <span>Neraca</span>
+                    </a>
+                </li>
+
          <!--   @can('roles')
             <li class="nav-item">
                 <a class="nav-link {{ $linkrole or '' }}" href="{{ route('roles.index') }}">

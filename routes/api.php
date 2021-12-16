@@ -22,3 +22,4 @@ Route::resource('kas', 'Api\KasController');
 Route::resource('nasabah', 'Api\NasabahController');
 Route::resource('penarikan', 'Api\PenarikanController');
 Route::resource('pinjaman', 'Api\PinjamanController');
+Route::resource('neraca', 'Api\NeracaController');

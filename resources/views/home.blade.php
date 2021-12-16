@@ -271,31 +271,31 @@
             <div class="col">
                     <div class="card card-small mb-4">
                         <div class="card-header border-bottom">
-                          Histori Transaksi
+                          Neraca
                         </div>
                         <div class="card-body p-0 pb-3 text-center">
                             <table class="table mb-0">
                                 <thead class="bg-light">
                                     <tr>
-                                        <th scope="col" class="border-0">Kode Transaksi</th>
+
                                         <th scope="col" class="border-0">Tanggal</th>
-                                        <th scope="col" class="border-0">Nasabah</th>
-                                        <th scope="col" class="border-0">Tarik</th>
+                                        <th scope="col" class="border-0">Akun</th>
+                                        <th scope="col" class="border-0">Keluar</th>
                                         <th scope="col" class="border-0">Masuk</th>
                                         <th scope="col" class="border-0">Saldo</th>
-                                        <th scope="col" class="border-0">Pengelola</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (\App\Simpanan::get() as $simpanan)
                                     <tr>
-                                        <td>{{ $simpanan->kode_transaksi }}</td>
+
                                         <td>{{ $simpanan->tanggal }}</td>
                                         <td>{{ $simpanan->user->name }}</td>
                                         <td>{{ number_format($simpanan->debit, 2) }}</td>
                                         <td>{{ number_format($simpanan->kredit, 2) }}</td>
                                         <td>{{ number_format($simpanan->saldo, 2) }}</td>
-                                        <td>{{ $simpanan->pengelola }}</td>
+
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -312,6 +312,7 @@
 
 
             </div>
+
         </div>
     @endhasanyrole
     <!-- End Small Stats Blocks -->
